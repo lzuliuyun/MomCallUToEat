@@ -1,0 +1,11 @@
+E:\02 Personal Code\05 C#\01 Learn\AutoShutdownPC\AutoShutdownPC\bin\Debug\AutoShutdownPC.exe.config
+E:\02 Personal Code\05 C#\01 Learn\AutoShutdownPC\AutoShutdownPC\bin\Debug\AutoShutdownPC.exe
+E:\02 Personal Code\05 C#\01 Learn\AutoShutdownPC\AutoShutdownPC\bin\Debug\AutoShutdownPC.pdb
+E:\02 Personal Code\05 C#\01 Learn\AutoShutdownPC\AutoShutdownPC\obj\Debug\AutoShutdownPC.Properties.Resources.resources
+E:\02 Personal Code\05 C#\01 Learn\AutoShutdownPC\AutoShutdownPC\obj\Debug\AutoShutdownPC.csproj.GenerateResource.Cache
+E:\02 Personal Code\05 C#\01 Learn\AutoShutdownPC\AutoShutdownPC\obj\Debug\AutoShutdownPC.exe
+E:\02 Personal Code\05 C#\01 Learn\AutoShutdownPC\AutoShutdownPC\obj\Debug\AutoShutdownPC.pdb
+E:\02 Personal Code\05 C#\01 Learn\AutoShutdownPC\AutoShutdownPC\obj\Debug\AutoShutdownPC.MainForm.resources
+E:\02 Personal Code\05 C#\01 Learn\AutoShutdownPC\AutoShutdownPC\obj\Debug\Interop.WMPLib.dll
+E:\02 Personal Code\05 C#\01 Learn\AutoShutdownPC\AutoShutdownPC\obj\Debug\AutoShutdownPC.csproj.ResolveComReference.cache
+E:\02 Personal Code\05 C#\01 Learn\AutoShutdownPC\AutoShutdownPC\bin\Debug\Newtonsoft.Json.dll
