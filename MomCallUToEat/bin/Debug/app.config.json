@@ -1,1 +1,40 @@
-{"clocks":[{"name":"世界等着你去拯救","hour":6,"min":30,"shutdown":false,"sleep":false,"playtime":10,"playlist":["E:\\Program Files\\Netease\\Music Download\\周杰伦 - 七里香.mp3"]},{"name":"人不吃饭饿得慌","hour":17,"min":0,"sleep":true,"shutdown":false,"playtime":10,"playlist":["E:\\Program Files\\Netease\\Music Download\\周杰伦 - 七里香.mp3"]},{"name":"出去看看美女吧","hour":"18","min":"00","sleep":true,"shutdown":false,"playtime":10,"playlist":["E:\\Program Files\\Netease\\Music Download\\周杰伦 - 七里香.mp3"]},{"name":"春宵一刻值千金","hour":"23","min":"11","sleep":false,"shutdown":true,"playtime":10,"playlist":["E:\\Program Files\\Netease\\Music Download\\周杰伦 - 七里香.mp3"]}]}
+﻿{
+  "clocks": [
+    {
+      "name": "世界等着你去拯救",
+      "hour": "8",
+      "min": "30",
+      "shutdown": false,
+      "sleep": false,
+      "playtime": 10,
+      "playlist":["E:\\Program Files\\Netease\\Music Download\\周杰伦 - 七里香.mp3"] 
+    },
+    {
+      "name": "人不吃饭饿得慌",
+      "hour": "12",
+      "min": "00",
+      "sleep": true,
+      "shutdown": false,
+      "playtime": 10,
+      "playlist":["E:\\Program Files\\Netease\\Music Download\\周杰伦 - 七里香.mp3"]
+    },
+    {
+      "name": "出去看看美女吧",
+      "hour": "18",
+      "min": "00",
+      "sleep": true,
+      "shutdown": false,
+      "playtime": 10,
+      "playlist":["E:\\Program Files\\Netease\\Music Download\\周杰伦 - 七里香.mp3"]
+    },
+    {
+      "name": "春宵一刻值千金",
+      "hour": "23",
+      "min": "11",
+      "sleep": false,
+      "shutdown": true,
+      "playtime": 10,
+      "playlist": [ "E:\\Program Files\\Netease\\Music Download\\周杰伦 - 七里香.mp3" ]
+    }
+  ]
+}
