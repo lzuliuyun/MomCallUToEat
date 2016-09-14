@@ -9,4 +9,3 @@ E:\02 Personal Code\05 C#\01 Learn\MomCallUToEat\MomCallUToEat\obj\Debug\MomCall
 E:\02 Personal Code\05 C#\01 Learn\MomCallUToEat\MomCallUToEat\obj\Debug\MomCallUToEat.exe
 E:\02 Personal Code\05 C#\01 Learn\MomCallUToEat\MomCallUToEat\obj\Debug\MomCallUToEat.pdb
 E:\02 Personal Code\05 C#\01 Learn\MomCallUToEat\MomCallUToEat\obj\Debug\MomCallUToEat.MainForm.resources
-E:\02 Personal Code\05 C#\01 Learn\MomCallUToEat\MomCallUToEat\obj\Debug\MomCallUToEat.csprojResolveAssemblyReference.cache

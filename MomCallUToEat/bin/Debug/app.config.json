@@ -7,7 +7,7 @@
       "shutdown": false,
       "sleep": false,
       "playtime": 10,
-      "playlist":["E:\\Program Files\\Netease\\Music Download\\周杰伦 - 七里香.mp3"] 
+      "playlist":["E:\\Program Files\\Netease\\Music Download\\周杰伦 - 七里香.mp3","E:\\Program Files\\Netease\\Music Download\\Kenny G - Going home.mp3"] 
     },
     {
       "name": "人不吃饭饿得慌",
@@ -34,7 +34,7 @@
       "sleep": false,
       "shutdown": true,
       "playtime": 10,
-      "playlist": [ "E:\\Program Files\\Netease\\Music Download\\周杰伦 - 七里香.mp3" ]
+      "playlist": ["E:\\Program Files\\Netease\\Music Download\\周杰伦 - 七里香.mp3","E:\\Program Files\\Netease\\Music Download\\Kenny G - Going home.mp3"] 
     }
   ],
   "startup":true

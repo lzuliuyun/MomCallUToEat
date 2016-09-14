@@ -17,6 +17,8 @@ namespace MomCallUToEat.Panel
         private Mp3Player mp3;
         private System.Timers.Timer timer;
 
+        private TextBox tempBox;
+
         public ClockGroup(ClockInfo clockinfo)
         {
             this.clockInfo = clockinfo;
@@ -34,6 +36,8 @@ namespace MomCallUToEat.Panel
             hourTxt.Font = new Font(hourTxt.Font.Name,36);
             hourTxt.Size = new Size(55, 55);
             hourTxt.Multiline = true;
+
+            tempBox = hourTxt;
 
             minTxt.Font = new Font(minTxt.Font.Name, 36);
             minTxt.Size = new Size(55, 55);
@@ -87,10 +91,10 @@ namespace MomCallUToEat.Panel
             sleepRadio.Checked = clockInfo.Sleep;
             playtime.Value = clockInfo.Playtime;
 
-            hourTxt.TextChanged += new EventHandler(hourTxtChange);
+            hourTxt.KeyUp += new KeyEventHandler(hourTxtChange);
             hourTxt.Leave += new EventHandler(hourTxtLeave);
             
-            minTxt.TextChanged += new EventHandler(minTxtChange);
+            minTxt.KeyUp += new KeyEventHandler(minTxtChange);
             minTxt.Leave += new EventHandler(minTxtLeave);
             playtime.ValueChanged += new EventHandler(playtimeChange);
             sleepRadio.CheckedChanged += new EventHandler(sleepRadioChange);
@@ -177,7 +181,7 @@ namespace MomCallUToEat.Panel
                 else
                 {
                     temp.Text = string.Format("{0:D2}", clockInfo.Hour);
-                }               
+                }                               
             }
             catch (Exception ex)
             {
