@@ -1,6 +1,6 @@
-﻿using AutoShutdownPC.JSON;
-using AutoShutdownPC.Mp3;
-using AutoShutdownPC.PCSystem;
+﻿using MomCallUToEat.JSON;
+using MomCallUToEat.Mp3;
+using MomCallUToEat.PCSystem;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
@@ -9,7 +9,7 @@ using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 
-namespace AutoShutdownPC.Panel
+namespace MomCallUToEat.Panel
 {
     class ClockGroup
     {
@@ -62,7 +62,7 @@ namespace AutoShutdownPC.Panel
             RadioButton shutdownRadio = new RadioButton();
             RadioButton sleepRadio = new RadioButton();
 
-            sleepRadio.Text = "睡眠";
+            sleepRadio.Text = "锁屏";
             shutdownRadio.Text = "关机";
 
             sleepRadio.Size = new Size(50, 20);
@@ -88,7 +88,10 @@ namespace AutoShutdownPC.Panel
             playtime.Value = clockInfo.Playtime;
 
             hourTxt.TextChanged += new EventHandler(hourTxtChange);
+            hourTxt.Leave += new EventHandler(hourTxtLeave);
+            
             minTxt.TextChanged += new EventHandler(minTxtChange);
+            minTxt.Leave += new EventHandler(minTxtLeave);
             playtime.ValueChanged += new EventHandler(playtimeChange);
             sleepRadio.CheckedChanged += new EventHandler(sleepRadioChange);
             shutdownRadio.CheckedChanged += new EventHandler(shutdownRadioChange);
@@ -115,7 +118,7 @@ namespace AutoShutdownPC.Panel
                 mp3.PlayList = clockInfo.Playlist;
                 mp3.play();
 
-                timer = new System.Timers.Timer(1000 * this.clockInfo.Playtime);   
+                timer = new System.Timers.Timer(1000 * 60* this.clockInfo.Playtime);   
                 timer.Elapsed += new System.Timers.ElapsedEventHandler(timePlay);
                 timer.AutoReset = false;   
                 timer.Enabled = true; 
@@ -166,9 +169,55 @@ namespace AutoShutdownPC.Panel
             {
                 if (temp.Text == "") return;
                 int time = Convert.ToInt32(temp.Text);
-                this.clockInfo.Hour = time;
+                if(time >= 0 && time < 24)
+                {
+                    this.clockInfo.Hour = time;
+                    saveToJSONConfigFile();
+                }
+                else
+                {
+                    temp.Text = string.Format("{0:D2}", clockInfo.Hour);
+                }               
+            }
+            catch (Exception ex)
+            {
 
-                saveToJSONConfigFile();
+            }
+        }
+
+        private void hourTxtLeave(object sender, EventArgs e)
+        {
+            TextBox temp = sender as TextBox;
+            try
+            {
+                if (temp.Text == "") return;
+                int time = Convert.ToInt32(temp.Text);
+                if (time >= 0 && time <24)
+                {
+                    this.clockInfo.Hour = time;
+                    temp.Text = string.Format("{0:D2}", clockInfo.Hour);                   
+                    saveToJSONConfigFile();
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
+        private void minTxtLeave(object sender, EventArgs e)
+        {
+            TextBox temp = sender as TextBox;
+            try
+            {
+                if (temp.Text == "") return;
+                int time = Convert.ToInt32(temp.Text);
+                if (time >= 0 && time <= 60)
+                {
+                    this.clockInfo.Hour = time;
+                    temp.Text = string.Format("{0:D2}", clockInfo.Min);
+                    saveToJSONConfigFile();
+                }
             }
             catch (Exception ex)
             {
@@ -183,9 +232,16 @@ namespace AutoShutdownPC.Panel
             {
                 if (temp.Text == "") return;
                 int time = Convert.ToInt32(temp.Text);
-                this.clockInfo.Min = time;
 
-                saveToJSONConfigFile();
+                if (time >= 0 && time <= 60)
+                {
+                    this.clockInfo.Min = time;
+                    saveToJSONConfigFile();
+                }
+                else
+                {
+                    temp.Text = string.Format("{0:D2}", clockInfo.Min);
+                }
             }
             catch(Exception ex)
             {
@@ -214,7 +270,7 @@ namespace AutoShutdownPC.Panel
         {
             JSONOperation jOp = new JSONOperation();
 
-            string path = "./app.config.json";
+            string path = Application.StartupPath + "//app.config.json";
             JObject jo;
             using (StreamReader reader = File.OpenText(@path))
             {
@@ -238,7 +294,7 @@ namespace AutoShutdownPC.Panel
                     jClock["shutdown"] = clockInfo.Shutdown;
                     jClock["sleep"] = clockInfo.Sleep;
                     jClock["playtime"] = clockInfo.Playtime;
-                    jOp.WriteToFile("./app.config.json", jo);
+                    jOp.WriteToFile(path, jo);
                     break;
                 } 
             }

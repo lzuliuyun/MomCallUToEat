@@ -9,14 +9,19 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.Media;
-using AutoShutdownPC.Mp3;
-using AutoShutdownPC.Panel;
-using AutoShutdownPC.JSON;
+using MomCallUToEat.Mp3;
+using MomCallUToEat.Panel;
+using MomCallUToEat.JSON;
+using Microsoft.Win32;
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
+using System.IO;
 
-namespace AutoShutdownPC
+namespace MomCallUToEat
 {
     public partial class MainForm : Form
     {
+        private ClockConfig clockconfig;
         public MainForm()
         {
             InitializeComponent();
@@ -33,8 +38,10 @@ namespace AutoShutdownPC
         private void initPanel()
         {
             JSONOperation jOper = new JSONOperation();
-            ClockInfo[] clockInfos = jOper.initConfig("./app.config.json");
+            clockconfig = jOper.initConfig(Application.StartupPath+"//app.config.json");
+            ClockInfo[] clockInfos = clockconfig.Clockinfos;
 
+            //修改配置文件在clockgroup
             int height = 0;
             for (int i = 0; i < clockInfos.Length; i++)
             {
@@ -46,6 +53,15 @@ namespace AutoShutdownPC
 
             if (this.Height == 30) return;
             this.Height = height + 30 - (clockInfos.Length -1)*3;
+
+            if (clockconfig.Startup)
+            {
+                startUpWithPC();
+            }
+            else
+            {
+                stopStartUpWithPC();
+            }
         }
 
         private void exitMenu_Click(object sender, EventArgs e)
@@ -81,6 +97,66 @@ namespace AutoShutdownPC
                 this.WindowState = FormWindowState.Normal;
                 this.Activate();
             }
+        }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = true;
+
+            this.WindowState = FormWindowState.Minimized;
+            this.Hide();
+        }
+
+        private void startup_Click(object sender, EventArgs e)
+        {
+            ToolStripMenuItem item = sender as ToolStripMenuItem;
+            string text = item.Text;
+            if(text == "开机启动:N")
+            {                
+                startUpWithPC();
+            }
+            else
+            {
+               
+                stopStartUpWithPC();
+            }
+        }
+
+        private void startUpWithPC()
+        {
+            startupItem.Text = "开机启动:Y";
+            saveToJSONConfigFile(true);
+
+            string path = Application.ExecutablePath;
+            RegistryKey rk = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Run", true);
+            rk.SetValue("MamCallUToEat", path);
+            rk.Close();
+        }
+
+        private void stopStartUpWithPC()
+        {
+            startupItem.Text = "开机启动:N";
+            saveToJSONConfigFile(false);
+
+            string path = Application.ExecutablePath;
+            RegistryKey rk = Registry.CurrentUser.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Run");
+            rk.DeleteValue("MamCallUToEat", false);
+            rk.Close();
+        }
+
+        private void saveToJSONConfigFile(bool startup)
+        {
+            JSONOperation jOp = new JSONOperation();
+
+            string path = Application.StartupPath + "//app.config.json";
+            JObject jo;
+            using (StreamReader reader = File.OpenText(@path))
+            {
+                jo = (JObject)JToken.ReadFrom(new JsonTextReader(reader));
+            }
+
+            jo["startup"] = startup;
+            jOp.WriteToFile(path, jo);
         }
     }
 }

@@ -1,7 +1,6 @@
 E:\02 Personal Code\05 C#\01 Learn\MomCallUToEat\MomCallUToEat\obj\Debug\Interop.WMPLib.dll
 E:\02 Personal Code\05 C#\01 Learn\MomCallUToEat\MomCallUToEat\obj\Debug\MomCallUToEat.csproj.ResolveComReference.cache
 E:\02 Personal Code\05 C#\01 Learn\MomCallUToEat\MomCallUToEat\bin\Debug\Newtonsoft.Json.dll
-E:\02 Personal Code\05 C#\01 Learn\MomCallUToEat\MomCallUToEat\obj\Debug\AutoShutdownPC.MainForm.resources
 E:\02 Personal Code\05 C#\01 Learn\MomCallUToEat\MomCallUToEat\obj\Debug\MomCallUToEat.csproj.GenerateResource.Cache
 E:\02 Personal Code\05 C#\01 Learn\MomCallUToEat\MomCallUToEat\bin\Debug\MomCallUToEat.exe.config
 E:\02 Personal Code\05 C#\01 Learn\MomCallUToEat\MomCallUToEat\bin\Debug\MomCallUToEat.exe
@@ -9,3 +8,5 @@ E:\02 Personal Code\05 C#\01 Learn\MomCallUToEat\MomCallUToEat\bin\Debug\MomCall
 E:\02 Personal Code\05 C#\01 Learn\MomCallUToEat\MomCallUToEat\obj\Debug\MomCallUToEat.Properties.Resources.resources
 E:\02 Personal Code\05 C#\01 Learn\MomCallUToEat\MomCallUToEat\obj\Debug\MomCallUToEat.exe
 E:\02 Personal Code\05 C#\01 Learn\MomCallUToEat\MomCallUToEat\obj\Debug\MomCallUToEat.pdb
+E:\02 Personal Code\05 C#\01 Learn\MomCallUToEat\MomCallUToEat\obj\Debug\MomCallUToEat.MainForm.resources
+E:\02 Personal Code\05 C#\01 Learn\MomCallUToEat\MomCallUToEat\obj\Debug\MomCallUToEat.csprojResolveAssemblyReference.cache

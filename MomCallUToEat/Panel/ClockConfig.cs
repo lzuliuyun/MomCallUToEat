@@ -4,10 +4,37 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AutoShutdownPC.Panel
+namespace MomCallUToEat.Panel
 {
     class ClockConfig
     {
-        private ClockInfo[] clocks;
+        private ClockInfo[] clockinfos;
+        private bool startup;
+
+        public bool Startup
+        {
+            get
+            {
+                return startup;
+            }
+
+            set
+            {
+                startup = value;
+            }
+        }
+
+        internal ClockInfo[] Clockinfos
+        {
+            get
+            {
+                return clockinfos;
+            }
+
+            set
+            {
+                clockinfos = value;
+            }
+        }
     }
 }

@@ -5,7 +5,7 @@
 //https://msdn.microsoft.com/en-us/library/windows/desktop/dd562388(v=vs.85).aspx
 //https://msdn.microsoft.com/en-us/library/windows/desktop/dd562692(v=vs.85).aspx
 
-namespace AutoShutdownPC.Mp3
+namespace MomCallUToEat.Mp3
 {
     class Mp3Player
     {

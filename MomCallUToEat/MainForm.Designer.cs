@@ -1,4 +1,4 @@
-﻿namespace AutoShutdownPC
+﻿namespace MomCallUToEat
 {
     partial class MainForm
     {
@@ -35,6 +35,7 @@
             this.showMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.hideMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.exitMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.startupItem = new System.Windows.Forms.ToolStripMenuItem();
             this.flowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.contextMenu.SuspendLayout();
             this.SuspendLayout();
@@ -52,14 +53,15 @@
             this.contextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.showMenu,
             this.hideMenu,
+            this.startupItem,
             this.exitMenu});
             this.contextMenu.Name = "contextMenu";
-            this.contextMenu.Size = new System.Drawing.Size(101, 70);
+            this.contextMenu.Size = new System.Drawing.Size(135, 92);
             // 
             // showMenu
             // 
             this.showMenu.Name = "showMenu";
-            this.showMenu.Size = new System.Drawing.Size(100, 22);
+            this.showMenu.Size = new System.Drawing.Size(134, 22);
             this.showMenu.Text = "显示";
             this.showMenu.Visible = false;
             this.showMenu.Click += new System.EventHandler(this.showMenu_Click);
@@ -67,7 +69,7 @@
             // hideMenu
             // 
             this.hideMenu.Name = "hideMenu";
-            this.hideMenu.Size = new System.Drawing.Size(100, 22);
+            this.hideMenu.Size = new System.Drawing.Size(134, 22);
             this.hideMenu.Text = "隐藏";
             this.hideMenu.Visible = false;
             this.hideMenu.Click += new System.EventHandler(this.hideMenu_Click);
@@ -75,9 +77,16 @@
             // exitMenu
             // 
             this.exitMenu.Name = "exitMenu";
-            this.exitMenu.Size = new System.Drawing.Size(100, 22);
+            this.exitMenu.Size = new System.Drawing.Size(134, 22);
             this.exitMenu.Text = "退出";
             this.exitMenu.Click += new System.EventHandler(this.exitMenu_Click);
+            // 
+            // startupItem
+            // 
+            this.startupItem.Name = "startupItem";
+            this.startupItem.Size = new System.Drawing.Size(134, 22);
+            this.startupItem.Text = "开机启动:Y";
+            this.startupItem.Click += new System.EventHandler(this.startup_Click);
             // 
             // flowLayoutPanel
             // 
@@ -95,11 +104,13 @@
             this.ClientSize = new System.Drawing.Size(254, 515);
             this.Controls.Add(this.flowLayoutPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "MainForm";
             this.ShowInTaskbar = false;
             this.Text = "自动关机";
             this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.contextMenu.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -115,6 +126,7 @@
         private System.Windows.Forms.ToolStripMenuItem hideMenu;
         private System.Windows.Forms.ToolStripMenuItem exitMenu;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel;
+        private System.Windows.Forms.ToolStripMenuItem startupItem;
     }
 }
 

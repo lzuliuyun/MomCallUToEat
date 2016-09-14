@@ -1,4 +1,4 @@
-﻿using AutoShutdownPC.Panel;
+﻿using MomCallUToEat.Panel;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace AutoShutdownPC.JSON
+namespace MomCallUToEat.JSON
 {
     class JSONOperation
     {
@@ -42,7 +42,7 @@ namespace AutoShutdownPC.JSON
             return jsonStr;
         }
 
-        public ClockInfo[] initConfig(string path)
+        public ClockConfig initConfig(string path)
         {
             JObject jo;
             using (StreamReader reader = File.OpenText(@path))
@@ -51,6 +51,9 @@ namespace AutoShutdownPC.JSON
             }
 
             string configs = jo["clocks"].ToString();
+            bool startup = (bool)jo["startup"];
+            ClockConfig clockconfig = new ClockConfig();
+
             JArray jArr = (JArray)jo["clocks"];
             //string ja1a = ja[1]["remarks"].ToString();
             int len = jArr.Count;
@@ -77,7 +80,10 @@ namespace AutoShutdownPC.JSON
                 clockInfos[i] = clockinfo;
             }
 
-            return clockInfos;
+            clockconfig.Clockinfos = clockInfos;
+            clockconfig.Startup = startup;
+
+            return clockconfig;
 
             //IList<ClockInfo> clockInfo = ((JArray)ja).Select(x => new ClockInfo
             //{
@@ -102,12 +108,6 @@ namespace AutoShutdownPC.JSON
             {
 
             }
-        }
-
-        private class Movie
-        {
-            public string Name { get; set; }
-            public int Year { get; set; }
         }
     }
 }

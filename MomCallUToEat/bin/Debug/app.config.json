@@ -36,5 +36,6 @@
       "playtime": 10,
       "playlist": [ "E:\\Program Files\\Netease\\Music Download\\周杰伦 - 七里香.mp3" ]
     }
-  ]
+  ],
+  "startup":true
 }
